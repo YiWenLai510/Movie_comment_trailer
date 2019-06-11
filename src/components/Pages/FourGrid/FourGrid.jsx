@@ -16,8 +16,12 @@ const FourGrid = props => {
     };
     return (
         <div className="rmdb-grid">
-            {props.header && !props.loading ? <h1>{props.header}</h1> : null}
-            <div className="four-col-grid">{renderElements()}</div>
+            <input type="checkbox" id="actor_input"></input>
+            <label htmlFor="actor_input" className="first"><h1>{props.header}</h1></label>
+            <ul className="four-col-grid">{renderElements()}</ul>
+            
+            {/*{props.header && !props.loading ? <h1>{props.header}</h1> : null}
+            <div className="four-col-grid">{renderElements()}</div>*/}
         </div>
     );
 };

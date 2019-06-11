@@ -8,7 +8,7 @@ import MovieInfo from "./../Pages/MovieInfo/MovieInfo";
 import MovieInfoBar from "./../Pages/MovieInfoBar/MovieInfoBar";
 import FourGrid from "./../Pages/FourGrid/FourGrid";
 import Actor from "./../Pages/Actor/Actor";
-
+import Youtube from "./../Pages/Youtube/Youtube"
 import "./Movie.css";
 
 const Movie = ({ movie, videos,directors, actors, loading }) => {
@@ -22,6 +22,7 @@ const Movie = ({ movie, videos,directors, actors, loading }) => {
                     budget={movie.budget}
                     revenue={movie.revenue}
                 />
+                <Youtube videos={videos}></Youtube>
                 <FourGrid header="Actors">
                     {actors.map(actor => (
                         <Actor key={actor.id} actor={actor} />

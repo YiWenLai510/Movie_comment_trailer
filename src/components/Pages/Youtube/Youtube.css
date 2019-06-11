@@ -1,0 +1,9 @@
+.youtube{
+    width : 95% ;
+    height: 600px;
+    margin: 20px auto;
+}
+
+.youtube_container{
+    display:flex;
+}

@@ -47,3 +47,35 @@
         grid-template-columns: repeat(4, minmax(150px, 250px));
     }
 }
+
+
+
+ul{
+list-style: none;
+margin: 0;
+padding: 0;
+}
+
+label{
+display: block;
+cursor: pointer;
+padding: 10px;
+border-bottom: none;
+}
+
+input[type="checkbox"]{
+position: absolute;
+left: -9999px;
+}
+
+input[type="checkbox"] ~ ul{
+height: 0;
+transform: scaleY(0);
+}
+
+input[type="checkbox"]:checked ~ ul{
+height: 100%;
+transform-origin: top;
+transition: transform .2s ease-out;
+transform: scaleY(1); 
+}

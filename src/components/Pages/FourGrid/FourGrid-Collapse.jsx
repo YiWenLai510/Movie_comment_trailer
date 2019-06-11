@@ -1,9 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import "./FourGrid.css";
+import "./FourGrid-Collapse.css";
 
-const FourGrid = props => {
+const FourGrid_Collapse = props => {
     const renderElements = () => {
         const gridElements = props.children.map((element, i) => {
             return (
@@ -15,16 +15,17 @@ const FourGrid = props => {
         return gridElements;
     };
     return (
-        <div className="rmdb-grid">            
-            {props.header && !props.loading ? <h1>{props.header}</h1> : null}
-            <div className="four-col-grid">{renderElements()}</div>
+        <div className="rmdb-grid">
+            <input type="checkbox" id="actor_input"></input>
+            <label htmlFor="actor_input" className="first"><h1>{props.header}</h1></label>
+            <ul className="four-col-grid">{renderElements()}</ul>
         </div>
     );
 };
 
-FourGrid.propTypes = {
+FourGrid_Collapse.propTypes = {
     header: PropTypes.string.isRequired,
     children: PropTypes.array.isRequired
 };
 
-export default FourGrid;
+export default FourGrid_Collapse;

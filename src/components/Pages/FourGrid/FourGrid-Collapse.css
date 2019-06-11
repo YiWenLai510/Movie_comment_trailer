@@ -47,3 +47,30 @@
         grid-template-columns: repeat(4, minmax(150px, 250px));
     }
 }
+
+
+
+
+#actor_label{
+    display: block;
+    cursor: pointer;
+    padding: 10px;
+    border-bottom: none;
+}
+
+#actor_input{
+    position: absolute;
+    left: -9999px;
+}
+
+#actor_input ~ ul{
+    height: 0;
+    transform: scaleY(0);
+}
+
+#actor_input:checked ~ ul{
+    height: 100%;
+    transform-origin: top;
+    transition: transform .2s ease-out;
+    transform: scaleY(1); 
+}

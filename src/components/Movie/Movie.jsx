@@ -6,7 +6,8 @@ import Spinner from "./../Pages/Spinner/Spinner";
 import Navigation from "./../Pages/Navigation/Navigation";
 import MovieInfo from "./../Pages/MovieInfo/MovieInfo";
 import MovieInfoBar from "./../Pages/MovieInfoBar/MovieInfoBar";
-import FourGrid from "./../Pages/FourGrid/FourGrid";
+import FourGrid  from "./../Pages/FourGrid/FourGrid";
+import FourGrid_Collapse from "./../Pages/FourGrid/FourGrid-Collapse";
 import Actor from "./../Pages/Actor/Actor";
 import Youtube from "./../Pages/Youtube/Youtube"
 import "./Movie.css";
@@ -23,11 +24,11 @@ const Movie = ({ movie, videos,directors, actors, loading }) => {
                     revenue={movie.revenue}
                 />
                 <Youtube videos={videos}></Youtube>
-                <FourGrid header="Actors">
+                <FourGrid_Collapse header="Actors">
                     {actors.map(actor => (
                         <Actor key={actor.id} actor={actor} />
                     ))}
-                </FourGrid>
+                </FourGrid_Collapse>
                 <ScrollToTop showUnder={160}>
                     <span>
                         <i className="fas fa-arrow-circle-up fa-3x movie-top" />

@@ -123,3 +123,26 @@ export const setMovieState = state => {
         payload: state
     };
 };
+
+
+
+export const CLEAR_USER = () => {
+    return {
+        type: actions.CLEAR_USER,
+        payload: null
+    };
+};
+
+export const SET_USER = (user) => {
+    return {
+        type: actions.SET_USER,
+        payload: user
+    };
+};
+
+export const ADD_USER = (user) => {
+    return {
+        type: actions.ADD_USER,
+        payload: user._profile
+    };
+};

@@ -51,24 +51,27 @@
 
 
 
-#actor_label{
+#collapse_label{
     display: block;
     cursor: pointer;
     padding: 10px;
     border-bottom: none;
 }
 
-#actor_input{
+#collapse_input{
     position: absolute;
     left: -9999px;
 }
+#collapse_label:hover{
+    opacity:0.4;
+}
 
-#actor_input ~ ul{
+#collapse_input ~ ul{
     height: 0;
     transform: scaleY(0);
 }
 
-#actor_input:checked ~ ul{
+#collapse_input:checked ~ ul{
     height: 100%;
     transform-origin: top;
     transition: transform .2s ease-out;

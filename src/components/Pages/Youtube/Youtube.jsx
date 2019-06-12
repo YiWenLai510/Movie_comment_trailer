@@ -7,13 +7,16 @@ const Youtube = ({videos}) =>{
         const url = `https://www.youtube.com/embed/${videos.results[0].key}`
         return(
             <div className='youtube_container'>
-                <iframe className='youtube'
+                <iframe className='youtube' title=''
                     src={url} >
                 </iframe>
             </div>
             
         )
     }
+    else return(
+        <div></div>
+    )
 
 }
 

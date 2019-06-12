@@ -13,3 +13,10 @@ export const SHOW_LOADING_SPINNER = "SHOW_LOADING_SPINNER";
 export const GET_MOVIE = "GET_MOVIE";
 export const CLEAR_MOVIE = "CLEAR_MOVIE";
 export const SET_MOVIE_STATE = "SET_MOVIE_STATE";
+
+
+
+// Action for USER
+export const CLEAR_USER = "CLEAR_USER";
+export const SET_USER = "SET_USER";
+export const ADD_USER = "ADD_USER";

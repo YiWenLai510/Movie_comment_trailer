@@ -13,7 +13,8 @@ import Youtube from "./../Pages/Youtube/Youtube"
 import "./Movie.css";
 
 const Movie = ({ movie, videos,directors, actors, loading }) => {
-    if (movie && directors && actors) {
+    console.log(movie , directors , actors , videos)
+    if (movie && directors && actors && videos) {
         return (
             <React.Fragment>
                 <Navigation movie={movie.title} />

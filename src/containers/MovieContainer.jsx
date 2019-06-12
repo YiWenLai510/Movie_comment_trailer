@@ -12,6 +12,7 @@ import {
 class MovieContainer extends Component {
     componentDidMount() {
         const { movieId } = this.props.match.params;
+        this.props.getMovie(movieId);
         if (localStorage.getItem(`${movieId}`)) {
             const movie = JSON.parse(localStorage.getItem(`${movieId}`));
             this.props.setMovieState(movie);
@@ -23,6 +24,7 @@ class MovieContainer extends Component {
     componentDidUpdate() {
         const { movieId } = this.props.match.params;
         const { movie, actors, directors,videos } = this.props;
+        
         if (movie) {
             const movieState = { movie, actors, directors,videos };
             localStorage.setItem(`${movieId}`, JSON.stringify(movieState));

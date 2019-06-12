@@ -18,7 +18,6 @@ class LoginContainer extends Component {
     handleSocialLogin = (user) => {
         localStorage.setItem( "user", JSON.stringify(user._profile) );
         this.props.ADD_USER(user);
-        console.log('add')
     }
       
     handleSocialLoginFailure = (err) => {

@@ -97,17 +97,17 @@ export const getMovie = movieId => {
             newState = { movie: result };
             endpoint = `${API_URL}movie/${movieId}/credits?api_key=${API_KEY}`;
 
-            fetchMovies(endpoint, result => {
+            return fetchMovies(endpoint, result => {
                 const directors = result.crew.filter(
                     member => member.job === "Director"
                 );
                 newState.actors = result.cast;
                 newState.directors = directors;
-            });
-            endpoint = `${API_URL}movie/${movieId}/videos?api_key=${API_KEY}`;
-            return fetchMovies(endpoint, result => {     
-                newState.videos = result;
-                return newState;
+                endpoint = `${API_URL}movie/${movieId}/videos?api_key=${API_KEY}`;
+                return fetchMovies(endpoint, result => {     
+                    newState.videos = result;
+                    return newState;
+                });
             });
         }
     }).catch(error => console.error("Error:", error));

@@ -16,11 +16,9 @@ class HeaderContainer extends Component{
             const user = JSON.parse(localStorage.getItem('user'));
             this.props.SET_USER(user);
         }
-        console.log(this.props)
     }
    
     render(){
-        console.log(this.props)
         if(this.props.id){
             return (
                 <Headerlogged profilePicURL={this.props.profilePicURL} name={this.props.name}>                    

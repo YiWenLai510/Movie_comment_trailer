@@ -6,14 +6,12 @@ import Spinner from "./../Pages/Spinner/Spinner";
 import Navigation from "./../Pages/Navigation/Navigation";
 import MovieInfo from "./../Pages/MovieInfo/MovieInfo";
 import MovieInfoBar from "./../Pages/MovieInfoBar/MovieInfoBar";
-import FourGrid  from "./../Pages/FourGrid/FourGrid";
 import FourGrid_Collapse from "./../Pages/FourGrid/FourGrid-Collapse";
 import Actor from "./../Pages/Actor/Actor";
 import Youtube from "./../Pages/Youtube/Youtube"
 import "./Movie.css";
 
 const Movie = ({ movie, videos,directors, actors, loading }) => {
-    console.log(movie , directors , actors , videos)
     if (movie && directors && actors && videos) {
         return (
             <React.Fragment>
@@ -26,6 +24,11 @@ const Movie = ({ movie, videos,directors, actors, loading }) => {
                 />
                 <Youtube videos={videos}></Youtube>
                 <FourGrid_Collapse header="Actors">
+                    {actors.map(actor => (
+                        <Actor key={actor.id} actor={actor} />
+                    ))}
+                </FourGrid_Collapse>
+                <FourGrid_Collapse header="Comments">
                     {actors.map(actor => (
                         <Actor key={actor.id} actor={actor} />
                     ))}

@@ -58,7 +58,7 @@
     border-bottom: none;
 }
 
-#collapse_input{
+.collapsegrid-input{
     position: absolute;
     left: -9999px;
 }
@@ -66,12 +66,12 @@
     opacity:0.4;
 }
 
-#collapse_input ~ ul{
+.collapsegrid-input ~ ul{
     height: 0;
     transform: scaleY(0);
 }
 
-#collapse_input:checked ~ ul{
+.collapsegrid-input:checked ~ ul{
     height: 100%;
     transform-origin: top;
     transition: transform .2s ease-out;

@@ -23,7 +23,6 @@ const FourGrid = props => {
 };
 
 FourGrid.propTypes = {
-    header: PropTypes.string.isRequired,
     children: PropTypes.array.isRequired
 };
 

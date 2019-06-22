@@ -11,9 +11,6 @@ import {
 
 
 class LoginContainer extends Component {
-    constructor() {
-        super();
-      }
 
     handleSocialLogin = (user) => {
         localStorage.setItem( "user", JSON.stringify(user._profile) );
@@ -52,7 +49,8 @@ const mapStateToProps = state => {
     return state.user;
 };
 const mapDispatchToProps = {
-    ADD_USER
+    ADD_USER,
+    CLEAR_USER
 };
 
 export default connect(

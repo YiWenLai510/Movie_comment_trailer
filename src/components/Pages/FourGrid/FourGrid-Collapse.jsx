@@ -16,8 +16,8 @@ const FourGrid_Collapse = props => {
     };
     return (
         <div className="rmdb-grid">
-            <input type="checkbox" id="collapse_input"></input>
-            <label htmlFor="collapse_input" id="collapse_label"><h1>{props.header}</h1></label>
+            <input type="checkbox" id={props.header} className="collapsegrid-input"></input>
+            <label htmlFor={props.header} id="collapse_label"><h1>{props.header}</h1></label>
             <ul className="four-col-grid">{renderElements()}</ul>
         </div>
     );

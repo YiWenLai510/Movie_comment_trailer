@@ -4,7 +4,6 @@ import { connect } from "react-redux";
 import Header from "../components/Pages/Header/Header";
 import Headerlogged from "../components/Pages/Header/Headerlogged"
 import {
-    CLEAR_USER,
     SET_USER
 } from "./../actions";
 

@@ -16,14 +16,12 @@ const Header = ({profilePicURL,name}) => {
                 </Link>
             </div>
             <div>
-                <Link to="/login" className="link-left">
-                        <img
-                        src={profilePicURL}
-                        alt=""
-                        className="profileimg"
-                    />
-                </Link>
-                
+                <img
+                    src={profilePicURL}
+                    alt=""
+                    className="profileimg"
+                />
+                <i className="fas fa-sign-out-alt login-icon"></i>
             </div>
         </header>
     );

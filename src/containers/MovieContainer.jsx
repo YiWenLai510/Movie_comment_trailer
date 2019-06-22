@@ -1,34 +1,35 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-
+import axios from 'axios'
 import Movie from "./../components/Movie/Movie";
 import {
     showLoadingSpinner,
     clearMovie,
     getMovie,
-    setMovieState
+    setMovieState,
 } from "./../actions";
 
 class MovieContainer extends Component {
     componentDidMount() {
         const { movieId } = this.props.match.params;
-        this.props.getMovie(movieId);
-        if (localStorage.getItem(`${movieId}`)) {
+        this.getMovie(movieId);
+        /*if (localStorage.getItem(`${movieId}`)) {
             const movie = JSON.parse(localStorage.getItem(`${movieId}`));
             this.props.setMovieState(movie);
         } else {
             this.props.getMovie(movieId);
-        }
+        }*/
     }
 
     componentDidUpdate() {
+        /*
         const { movieId } = this.props.match.params;
         const { movie, actors, directors,videos } = this.props;
         
         if (movie) {
             const movieState = { movie, actors, directors,videos };
             localStorage.setItem(`${movieId}`, JSON.stringify(movieState));
-        }
+        }*/
     }
 
     getMovie = movieId => {
@@ -59,7 +60,7 @@ const mapDispatchToProps = {
     getMovie,
     showLoadingSpinner,
     clearMovie,
-    setMovieState
+    setMovieState,
 };
 
 export default connect(

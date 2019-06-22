@@ -3,12 +3,6 @@ import PropTypes from "prop-types";
 
 import "./ModeBar.css";
 export default class SearchBar extends Component {
-    componentDidMount(){
-        console.log(this.props.changemode)
-    }
-    componentDidUpdate(){
-    }
-
     render() {
         return (
             <div className="mode-bar">
@@ -21,7 +15,3 @@ export default class SearchBar extends Component {
         );
     }
 }
-
-SearchBar.popTypes = {
-    searchTerms: PropTypes.func.isRequired
-};

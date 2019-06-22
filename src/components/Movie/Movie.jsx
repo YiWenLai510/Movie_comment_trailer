@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import ScrollToTop from "react-scroll-up";
-
+import Evaluation from "./../Pages/Evaluation/Evaluation"
 import Spinner from "./../Pages/Spinner/Spinner";
 import Navigation from "./../Pages/Navigation/Navigation";
 import MovieInfo from "./../Pages/MovieInfo/MovieInfo";
@@ -23,12 +23,13 @@ const Movie = ({ movie, videos,directors, actors, loading }) => {
                     revenue={movie.revenue}
                 />
                 <Youtube videos={videos}></Youtube>
-                <FourGrid_Collapse header="Actors">
+                <Evaluation/>
+                <FourGrid_Collapse header="Comments">
                     {actors.map(actor => (
                         <Actor key={actor.id} actor={actor} />
                     ))}
                 </FourGrid_Collapse>
-                <FourGrid_Collapse header="Comments">
+                <FourGrid_Collapse header="Actors">
                     {actors.map(actor => (
                         <Actor key={actor.id} actor={actor} />
                     ))}

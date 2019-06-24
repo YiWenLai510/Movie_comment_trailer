@@ -1,4 +1,9 @@
 import React, { Component } from "react";
+import {  Mutation } from 'react-apollo'
+
+import {
+    CREATE_COMMENT_MUTATION
+} from '../../../graphql'
 
 import "./Evaluation.css";
 export default class SearchBar extends Component {
@@ -12,6 +17,7 @@ export default class SearchBar extends Component {
     constructor (props) {
         super(props)
         this.state = {
+            comment: '',
             rateValue: 0,
             rateArray: new Array(Number(props.rateNum)).fill('')
         }
@@ -26,35 +32,61 @@ export default class SearchBar extends Component {
         })
         this.props.handleSelectRate && this.props.handleSelectRate(value)
     }
+    handleSubmit = ()=>{
+        if(!this.state.comment || !this.state.rateValue) return;
+        /*
+            handle submit
+        */
+        console.log(this.state.comment,this.state.rateValue,this.props.movieId)
+        this.createcomment({
+            variables:{
+                content: this.state.comment,
+                stars: this.state.rateValue,
+                movieid: parseInt(this.props.movieId)
+            }
+        })
+        this.setState({
+            comment: '',
+            rateValue: 0,
+            rateArray: new Array(Number(this.props.rateNum)).fill('')
+        })
+    }
 
     render () {
         const {rateArray, rateValue} = this.state
         const {rateNum} = this.props
         return (
-            <div>
-                <div className="title_container">
-                    <textarea 
-                        name="title"
-                        value={this.state.formTitle}
-                        id="title"
-                        placeholder="Post title..."
-                        onChange={e =>
-                        this.setState({ formTitle: e.target.value })
-                        }
-                    ></textarea>
-                </div>
-                <div className="rate">
-                    <div className="rate__bg">
-                        {rateArray.map((item, index) => <span onClick={() => this.handleSelectRate(index+1)} key={`rate_${index}`}>☆</span>)}
-                        <div className="bg__realrate" style={{width: `calc(${rateValue ? rateValue : this.props.rateValue} / ${rateNum} * 100%)`}}>
-                            {rateArray.map((item, index) => <span onClick={() => this.handleSelectRate(index+1)} key={`rate_selected_${index}`}>★</span>)}
+            <Mutation mutation={CREATE_COMMENT_MUTATION}>
+            {   
+                createcomment =>{
+                    this.createcomment = createcomment;
+                    return(
+                        <div style={{padding:'20px'}}>
+                            <div className="title_container">
+                                <textarea 
+                                    name="title"
+                                    value={this.state.comment}
+                                    id="title"
+                                    placeholder="Post title..."
+                                    onChange={e =>
+                                        this.setState({ comment: e.target.value })
+                                    }
+                                ></textarea>
+                            </div>
+                            <div className="rate">
+                                <div className="rate__bg">
+                                    {rateArray.map((item, index) => <span onClick={() => this.handleSelectRate(index+1)} key={`rate_${index}`}>☆</span>)}
+                                    <div className="bg__realrate" style={{width: `calc(${rateValue ? rateValue : this.props.rateValue} / ${rateNum} * 100%)`}}>
+                                        {rateArray.map((item, index) => <span onClick={() => this.handleSelectRate(index+1)} key={`rate_selected_${index}`}>★</span>)}
+                                    </div>
+                                </div>
+                                <button className="evalution-send" onClick={this.handleSubmit}>send</button>
+                            </div>
                         </div>
-                    </div>
-                    <button className="evalution-send">send</button>
-                </div>
-            </div>
-            
-
+                    )
+                }
+            }
+            </Mutation>
         )
     }
 }

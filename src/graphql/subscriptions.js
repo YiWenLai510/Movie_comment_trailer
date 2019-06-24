@@ -1,30 +1,12 @@
 import { gql } from 'apollo-boost'
 
-export const AUTHOR_SUBSCRIPTION = gql`
-  subscription {
-    user {
+export const COMMENTS_SUBSCRIPTION = gql`
+  subscription comments($movieid:String!){
+    comments( movieid:$movieid) {
       mutation
       data {
-        posts{
-          title
-          body
-          published
-        }
-      }
-    }
-  }
-`
-export const POSTS_SUBSCRIPTION = gql`
-  subscription {
-    post {
-      mutation
-      data {
-        title
-        body
-        author {
-          name
-        }
-        published
+        content
+        stars
       }
     }
   }

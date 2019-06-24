@@ -1,7 +1,6 @@
 import { API_KEY, API_URL } from "./../configurations/config";
 import * as actions from "./actionTypes";
 import { fetchMovies } from "./../configurations/helper";
-import axios from 'axios'
 
 
 // Action for both-->
@@ -16,7 +15,6 @@ export const showLoadingSpinner = () => {
 export const getMovies = dispalymode => {
     const endPoint = `${API_URL}movie/${dispalymode}?api_key=${API_KEY}&language=en-US&page=1`; //Initially render details from first page
     const results = fetchMovies(endPoint);
-
     return {
         type: actions.GET_MOVIES,
         payload: results
@@ -113,9 +111,13 @@ export const getMovie = movieId => {
                 newState.actors = result.cast;
                 newState.directors = directors;
                 endpoint = `${API_URL}movie/${movieId}/videos?api_key=${API_KEY}`;
-                return fetchMovies(endpoint, result => {     
-                    newState.videos = result;
-                    return newState;
+                return fetchMovies(endpoint, result => {   
+                    newState.videos = result;  
+                    endpoint = `${API_URL}movie/${movieId}/similar?api_key=${API_KEY}`;
+                    return fetchMovies(endpoint, result =>{
+                        newState.movieSimilar = result.results;
+                        return newState;
+                    })
                 });
             });
         }

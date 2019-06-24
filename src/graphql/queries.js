@@ -1,27 +1,11 @@
 import { gql } from 'apollo-boost'
  
-export const POSTS_QUERY = gql`
-  query {
-    posts {
-      title
-      body
-      author {
-        name
-      }
-      published
-    }
-  }
-`
-export const AUTHOR_QUERY = gql`
-  query {
-    users {
-      name
-      id
-      posts{
-        title
-        body
-        published
-      }
+export const COMMENTS_QUERY = gql`
+  query comments($movieid:String){
+    comments(query:$movieid) {
+      content
+      stars
+      movieid
     }
   }
 `

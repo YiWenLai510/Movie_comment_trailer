@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import PropTypes from "prop-types";
 
 import "./ModeBar.css";
 export default class SearchBar extends Component {

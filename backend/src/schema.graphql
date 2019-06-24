@@ -1,0 +1,30 @@
+type Query {
+    comments(query:String): [Comment!]!
+}
+type Comment {
+  content:String!
+  stars:Int!
+  movieid:Int!
+}
+type Mutation {
+  createComment( data: CreateCommentInput!): Comment!
+}
+input CreateCommentInput {
+  content: String!
+  stars: Int!
+  movieid:Int!
+}
+
+type Subscription {
+  comments(movieid: String!): CommentSubscriptionPayload!
+}
+enum MutationType {
+  CREATED
+  UPDATED
+  DELETED 
+}
+
+type CommentSubscriptionPayload {
+  mutation: MutationType!
+  data: Comment!
+}

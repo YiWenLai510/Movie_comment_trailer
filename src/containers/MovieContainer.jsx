@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import axios from 'axios'
 import Movie from "./../components/Movie/Movie";
 import {
     showLoadingSpinner,
@@ -39,6 +38,7 @@ class MovieContainer extends Component {
     };
 
     render() {
+        const { movieId } = this.props.match.params;
         return (
             <React.Fragment>
                 <Movie
@@ -47,6 +47,8 @@ class MovieContainer extends Component {
                     actors={this.props.actors}
                     loading={this.props.loading}
                     videos={this.props.videos}
+                    movieId={movieId}
+                    movieSimilar={this.props.movieSimilar}
                 />
             </React.Fragment>
         );

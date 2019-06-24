@@ -6,6 +6,7 @@ export const COMMENTS_QUERY = gql`
       content
       stars
       movieid
+      id
     }
   }
 `

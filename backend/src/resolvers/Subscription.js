@@ -1,16 +1,16 @@
 const Subscription = {
   comments: {
-    subscribe(parent, { postId }, { db, pubsub }, info) {
+    subscribe(parent, { query }, { db, pubsub }, info) {
       const post = db.comments
-      console.log(post)
+      console.log(query)
 
       if (!post) {
         throw new Error('Post not found')
       } 
 
-      return pubsub.asyncIterator(`comment ${postId}`)
+      return pubsub.asyncIterator(`comments ${query}`)
     }
   }
 }
 
-export { Subscription as default }
+export { Subscription as default } 

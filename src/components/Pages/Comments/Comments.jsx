@@ -22,28 +22,25 @@ export default class Comments extends Component {
                     <Query query={COMMENTS_QUERY} variables={{movieid: this.props.movieId}}>
                     {({ loading, error, data, subscribeToMore }) => {
                         if (loading) return <p>Loading...</p>
-                        if (error) return <p>Error :(((</p>                       
-                        /*const posts = data.users.map( (people,id) =>
-                            <Author_post data={people} key ={id}/>
-                        );*/
+                        if (error) return <p>Error :(((</p>       
+                        console.log(data.comments)                
+                        const comments = data.comments.map( (comment) =>
+                            <div key ={comment.id}>{comment.content}</div>
+                        );
                         if (!unsubscribe)
                             unsubscribe = subscribeToMore({
                             document: COMMENTS_SUBSCRIPTION,
                             variables:{movieid: this.props.movieId},
                             updateQuery: (prev, { subscriptionData }) => {
-                            if (!subscriptionData.data) return prev
-                            const newPost = subscriptionData.data.post.data
-                            let index = data.users.findIndex( (user)=>{
-                                return (newPost.author.name === user.name)
-                            })
-                            data.users[index].posts.push(newPost)
-                            return {
-                                users:data.users
-                            }                      
+                                if (!subscriptionData.data) return prev
+                                const newPost = subscriptionData.data.comments.data
+                                return {
+                                    ...prev,
+                                    comments: [newPost, ...prev.comments]
+                                }                 
                             }
                         })
-                        console.log(data)
-                        return <div></div>
+                        return <ul>{comments}</ul>
                     }}
                     </Query>    
                 </ul>

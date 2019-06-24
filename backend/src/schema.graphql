@@ -5,6 +5,7 @@ type Comment {
   content:String!
   stars:Int!
   movieid:Int!
+  id: ID!
 }
 type Mutation {
   createComment( data: CreateCommentInput!): Comment!
@@ -16,7 +17,7 @@ input CreateCommentInput {
 }
 
 type Subscription {
-  comments(movieid: String!): CommentSubscriptionPayload!
+  comments(query: String!): CommentSubscriptionPayload!
 }
 enum MutationType {
   CREATED

@@ -1,11 +1,8 @@
 const Query = {
-  comments(){      
-    return (
-      [{content: 'Apple',stars:1,movieid:1},
-      {content: 'Banana',stars:1,movieid:1},
-      {content: 'Orange',stars:1,movieid:1},
-      {content: 'Melon',stars:1,movieid:1}]
-    )
+  comments(parent, args, { db }, info) {      
+    return db.comments.filter(comment => {
+      return comment.movieid == args.query
+    })
   } 
 }
 

@@ -1,8 +1,13 @@
 import uuidv4 from 'uuid/v4'
 
 const Mutation = {
-  createComment (){
-    return {content: 'Apple',stars:1,movieid:1}
+  createComment (parent, args, { db }, info){
+      const comment = {
+        id : uuidv4(),
+        ...args.data
+      }
+      db.comments.push(comment)
+      return comment
   }
 }
 

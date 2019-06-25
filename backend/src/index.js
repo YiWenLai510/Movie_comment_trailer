@@ -1,8 +1,18 @@
 import { GraphQLServer, PubSub } from 'graphql-yoga'
-import db from './db'
 import Query from './resolvers/Query'
 import Mutation from './resolvers/Mutation'
 import Subscription from './resolvers/Subscription'
+import {  models } from './db/index';
+import mongoose from 'mongoose';
+
+
+// SET UP Mongoose Promises.
+mongoose.Promise = global.Promise;
+
+mongoose.connect("mongodb+srv://tom:Tom_chean0927@cluster0-fz7xv.gcp.mongodb.net/test?retryWrites=true&w=majority",{
+    useNewUrlParser: true
+});
+const db = mongoose.connection
 
 
 const pubsub = new PubSub()
@@ -16,7 +26,8 @@ const server = new GraphQLServer({
   }, 
   context: {
     db,
-    pubsub
+    pubsub,
+    models
   }
 })  
 

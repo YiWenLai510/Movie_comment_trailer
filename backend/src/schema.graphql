@@ -1,5 +1,11 @@
 type Query {
     comments(query:String): [Comment!]!
+    favorite(query:String): User!
+}
+
+type User {
+  userId:String!
+  favorite:[Int!]  
 }
 type Comment {
   content:String!
@@ -9,7 +15,15 @@ type Comment {
 }
 type Mutation {
   createComment( data: CreateCommentInput!): Comment!
+  createFavorite( data: CreateFavoriteInput ): User!
 }
+
+input CreateFavoriteInput {
+  userId: String!
+  movieid:Int!
+}
+
+
 input CreateCommentInput {
   content: String!
   stars: Int!

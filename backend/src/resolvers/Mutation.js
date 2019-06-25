@@ -30,9 +30,28 @@ const Mutation = {
       })
       return comment*/
   },
-  createFavorite: async (parent, args, { db, pubsub }, info)=>{
-    
-
+  createFavorite: async (parent, args, { db, pubsub,models }, info)=>{
+    const User = await models.User.find({userId:args.data.userId});
+    if(Object.getOwnPropertyNames(User).length > 1){
+      User[0].favorite.push(args.data.movieid)
+      await models.User.updateOne({userId:args.data.userId},{
+        userId:args.data.userId,
+        favorite:User[0].favorite
+      })
+      return true;
+    }
+    else{
+      const newUser = new models.User({
+        userId: args.data.userId,
+        favorite: [args.data.movieid] 
+      })
+      try{
+        newUser.save();
+        return true;
+      }catch (e) {
+        throw new Error('Cannot Save Post!!!');
+      }
+    }
 
     /*const userIndex = db.User.findIndex(user => user.userId == args.data.userId)
     if (userIndex !== -1) {

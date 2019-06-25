@@ -6,7 +6,8 @@ const Query = {
       return comment.movieid == args.query
     })*/
   } ,
-  favorite(parent, args, { db }, info){
+  favorite: async(parent, args, { db,models }, info) =>{
+    return  await models.User.find({userId:args.query})
     /*if (!args.query) {
       return db.User
     }

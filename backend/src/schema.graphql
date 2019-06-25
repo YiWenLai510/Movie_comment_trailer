@@ -14,8 +14,8 @@ type Comment {
   id: ID!
 }
 type Mutation {
-  createComment( data: CreateCommentInput!): Comment!
-  createFavorite( data: CreateFavoriteInput ): User!
+  createComment( data: CreateCommentInput!): Boolean!
+  createFavorite( data: CreateFavoriteInput ): Boolean!
 }
 
 input CreateFavoriteInput {

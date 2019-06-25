@@ -1,7 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
 import ScrollToTop from "react-scroll-up";
-import Evaluation from "./../Pages/Evaluation/Evaluation"
 import Spinner from "./../Pages/Spinner/Spinner";
 import Navigation from "./../Pages/Navigation/Navigation";
 import MovieInfo from "./../Pages/MovieInfo/MovieInfo";
@@ -10,6 +9,7 @@ import FourGrid_Collapse from "./../Pages/FourGrid/FourGrid-Collapse";
 import Actor from "./../Pages/Actor/Actor";
 import Youtube from "./../Pages/Youtube/Youtube"
 import Comments from "./../Pages/Comments/Comments"
+import EvaluationContainer from './../../containers/EvaluationContainer'
 import "./Movie.css";
 
 import { POSTER_SIZE, IMAGE_BASE_URL } from "../../configurations/config";
@@ -28,7 +28,7 @@ const Movie = ({ movie, videos,directors, actors, loading,movieId,movieSimilar }
                     revenue={movie.revenue}
                 />
                 <Youtube videos={videos}></Youtube>
-                <Evaluation movieId={movieId}/>
+                <EvaluationContainer movieId={movieId}/>
                 <Comments movieId={movieId} header='Comments'>test</Comments>
                 <FourGrid_Collapse header="Actors">
                     {actors.map(actor => (

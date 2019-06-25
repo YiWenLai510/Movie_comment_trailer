@@ -1,15 +1,20 @@
 import uuidv4 from 'uuid/v4'
 
 const Mutation = {
-  createComment (parent, args, { db, pubsub ,models }, info){
-    
+  createComment:  (parent, args, { db, pubsub ,models }, info)=>{
     const newComment = new models.Comment({
       content:args.data.content,
       stars: args.data.stars,
       movieid:args.data.movieid,
       id:uuidv4(),
     });
-    newComment.save();
+    try{
+      newComment.save();
+      return true;
+    }catch (e) {
+      throw new Error('Cannot Save Post!!!');
+    }
+    
     /*const comment = {
         id : uuidv4(),
         ...args.data
@@ -25,7 +30,10 @@ const Mutation = {
       })
       return comment*/
   },
-  createFavorite(parent, args, { db, pubsub }, info){
+  createFavorite: async (parent, args, { db, pubsub }, info)=>{
+    
+
+
     /*const userIndex = db.User.findIndex(user => user.userId == args.data.userId)
     if (userIndex !== -1) {
       db.User[userIndex].favorite.push(args.data.movieid)

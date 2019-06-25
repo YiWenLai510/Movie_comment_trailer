@@ -12,10 +12,20 @@ export const CREATE_COMMENT_MUTATION = gql`
         stars: $stars
         movieid: $movieid
       }
-    ){
-      content
-      stars
-      movieid
-    } 
+    )
+  }
+`
+
+export const CREATE_FAVORITE_MUTATION = gql`
+  mutation createFavorite(
+    $userId: String!
+    $movieid:Int!
+  ) {
+    createFavorite(
+      data:{
+        userId: $userId
+        movieid:$movieid
+      }
+    )
   }
 `

@@ -8,7 +8,6 @@ export default class SearchBar extends Component {
 
     constructor (props) {
         super(props)
-        console.log(this.props.num)
         this.state = {
             rateValue: this.props.num,
             rateArray: new Array(Number(props.rateNum)).fill('')
@@ -17,7 +16,6 @@ export default class SearchBar extends Component {
     render () {
         const {rateArray, rateValue} = this.state
         const {rateNum} = this.props
-        console.log(`calc(${rateValue ? rateValue : this.props.rateValue} / ${rateNum} * 100%)`)
         return(
             <div className="stars">
                 <div className="rate__bg">

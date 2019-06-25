@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import {  Mutation } from 'react-apollo'
 
 import {
-    CREATE_COMMENT_MUTATION
+    CREATE_COMMENT_MUTATION,
+    CREATE_FAVORITE_MUTATION
 } from '../../../graphql'
 
 import "./Evaluation.css";
@@ -19,7 +20,8 @@ export default class SearchBar extends Component {
         this.state = {
             comment: '',
             rateValue: 0,
-            rateArray: new Array(Number(props.rateNum)).fill('')
+            rateArray: new Array(Number(props.rateNum)).fill(''),
+            click:false
         }
     }
 
@@ -48,9 +50,31 @@ export default class SearchBar extends Component {
         })
     }
 
+
+    handleLike = (e) =>{
+        if (this.state.click===false){
+            this.createfavorite({
+                variables:{
+                    userId:this.props.userId,
+                    movieid:parseInt(this.props.movieId)
+                }
+            })
+            this.setState({
+                click:true
+            })
+        } 
+        else {
+            this.setState({
+                click:false
+            })
+        }
+    }
+
     render () {
         const {rateArray, rateValue} = this.state
         const {rateNum} = this.props
+        let style ={opacity: "0.3"}
+        if(this.state.click===true) style ={opacity: "1.0"}
         return (
             <Mutation mutation={CREATE_COMMENT_MUTATION}>
             {   
@@ -77,6 +101,16 @@ export default class SearchBar extends Component {
                                     </div>
                                 </div>
                                 <button className="evalution-send" onClick={this.handleSubmit}>send</button>
+                                {
+                                    this.props.userId ? 
+                                        <Mutation mutation={CREATE_FAVORITE_MUTATION}>{
+                                            createfavorite =>{
+                                                this.createfavorite =createfavorite;
+                                                return  <i className="favorite fas fa-heart" onClick={this.handleLike} style={style}></i>
+                                            }
+                                        }
+                                        </Mutation> :null                                         
+                                }
                             </div>
                         </div>
                     )

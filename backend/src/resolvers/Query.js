@@ -1,5 +1,7 @@
 const Query = {
-  comments(parent, args, { db }, info) {      
+  comments: async (parent, args, { db,models }, info) =>{
+    return  await models.Comment.find({movieid:args.query})
+
     /*return db.comments.filter(comment => {
       return comment.movieid == args.query
     })*/

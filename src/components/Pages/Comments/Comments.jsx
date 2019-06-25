@@ -12,7 +12,13 @@ import "./Comments.css";
 let unsubscribe = null
 
 export default class Comments extends Component {
-    
+    componentWillUnmount(){
+        if(unsubscribe){
+            unsubscribe()
+            unsubscribe = null
+        }
+            
+    }
     render(){
         return (
             <div className="rmdb-grid">

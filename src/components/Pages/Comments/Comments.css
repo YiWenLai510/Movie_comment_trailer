@@ -21,6 +21,33 @@
     box-shadow: 0 0 5px rgba(247, 247, 247, 0.65);
 }
 
+.comment_comtainer{
+    padding: 30px 70px;
+}
+
+.comment{
+    color:#fff;
+    display: inline-flex;
+    min-height: 80px;
+    margin: 5px;
+    width: 100%;
+    background-color: rgba(75, 138, 255, 0.062);
+    word-wrap:break-word
+}
+.stars{
+    width: 30%;
+    padding: 15px;
+    color: #FF9C00;
+    margin: auto ;
+}
+
+
+.content{
+    padding: 15px;
+    min-height: 50px;
+    width: 70%;
+}
+
 .grid a {
     width: 100%;
 }

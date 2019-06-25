@@ -34,10 +34,6 @@ export default class SearchBar extends Component {
     }
     handleSubmit = ()=>{
         if(!this.state.comment || !this.state.rateValue) return;
-        /*
-            handle submit
-        */
-        console.log(this.state.comment,this.state.rateValue,this.props.movieId)
         this.createcomment({
             variables:{
                 content: this.state.comment,

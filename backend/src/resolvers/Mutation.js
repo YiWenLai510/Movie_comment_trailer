@@ -10,6 +10,12 @@ const Mutation = {
     });
     try{
       newComment.save();
+      pubsub.publish(`comments ${args.data.movieid}`, {
+        comments: {
+          mutation: 'CREATED',
+          data: newComment
+        }
+      })
       return true;
     }catch (e) {
       throw new Error('Cannot Save Post!!!');
@@ -21,13 +27,6 @@ const Mutation = {
       }
       console.log(comment)
       db.comments.push(comment) 
-
-      pubsub.publish(`comments ${args.data.movieid}`, {
-        comments: {
-          mutation: 'CREATED',
-          data: comment
-        }
-      })
       return comment*/
   },
   createFavorite: async (parent, args, { db, pubsub,models }, info)=>{

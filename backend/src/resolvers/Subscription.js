@@ -1,14 +1,8 @@
 const Subscription = {
   comments: {
-    /*subscribe(parent, { query }, { db, pubsub }, info) {
-      const post = db.comments
-
-      if (!post) {
-        throw new Error('Post not found')
-      } 
-
+    subscribe(parent, { query }, { db, pubsub }, info) {
       return pubsub.asyncIterator(`comments ${query}`)
-    }*/
+    }
   }
 }
 

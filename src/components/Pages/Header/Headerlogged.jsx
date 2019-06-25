@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 import "./Header.css";
 
-const Header = ({profilePicURL,name}) => {
+const Header = ({profilePicURL,name,logout}) => {
     return (
         <header className="header">
             <div>
@@ -15,13 +15,13 @@ const Header = ({profilePicURL,name}) => {
                     />
                 </Link>
             </div>
-            <div>
+            <div className="user_bar">
+                <i className="fas fa-sign-out-alt login-icon  fa-3x" style={{color:"#16a150"}} onClick={logout}></i>
                 <img
                     src={profilePicURL}
                     alt=""
                     className="profileimg"
                 />
-                <i className="fas fa-sign-out-alt login-icon"></i>
             </div>
         </header>
     );

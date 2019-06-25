@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import SocialButton from '../components/Pages/Login/SocialButton'
-
+import {withRouter} from "react-router-dom";
 import { connect } from "react-redux";
 
 import {
@@ -15,6 +15,7 @@ class LoginContainer extends Component {
     handleSocialLogin = (user) => {
         localStorage.setItem( "user", JSON.stringify(user._profile) );
         this.props.ADD_USER(user);
+        this.props.history.push("/");
     }
       
     handleSocialLoginFailure = (err) => {

@@ -38,7 +38,13 @@
     width: 30%;
     padding: 15px;
     color: #FF9C00;
-    margin: auto ;
+    font-family: sans-serif;
+    display: inline-flex;
+    line-height: 1;
+    padding: 10px 10px;
+    align-items: center;
+    justify-content: center;
+
 }
 
 

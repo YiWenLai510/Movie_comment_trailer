@@ -1,18 +1,15 @@
-import React from "react";
+import React ,  { useState }from "react";
 import { Link } from "react-router-dom";
 import Favorite from "../Favorite/favorite";
 import "./Header.css";
-/*<Favorite userId={userId}>
-                <button >
-                    <Link to= "/favorite">
-                        Favorite
-                    </Link>
-                </button>
-            </Favorite>
-            */ 
-const Header = ({profilePicURL,name,logout,userId}) => {
+
+    
+
+const Header = ({profilePicURL,name,logout,userId}) => { 
+    const [showFavorite,set_showFavorite] = useState(false);
     return (
-        <header className="header">
+        <React.Fragment>
+            <header className="header">
             <div>
                 <Link to="/">
                     <img
@@ -22,7 +19,9 @@ const Header = ({profilePicURL,name,logout,userId}) => {
                     />
                 </Link>
             </div>
-            
+            <button onClick={()=>set_showFavorite(!showFavorite) }>
+                Favorite
+            </button>
             <div className="user_bar">
                 <i className="fas fa-sign-out-alt login-icon  fa-3x" style={{color:"#16a150"}} onClick={logout}></i>
                 <img
@@ -32,6 +31,12 @@ const Header = ({profilePicURL,name,logout,userId}) => {
                 />
             </div>
         </header>
+        <div style={ {display:showFavorite?"block":"none"} }>
+            <Favorite userId={userId} />
+        </div>
+        
+        </React.Fragment>
+        
     );
 };
 

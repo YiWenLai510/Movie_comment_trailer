@@ -7,7 +7,7 @@ import HeaderContainer from "./containers/HeaderContainer";
 import MovieContainer from "./containers/MovieContainer";
 import LoginContainer from "./containers/LoginContainer"
 import NotFound from "./components/Pages/NotFound/NotFound";
-import Favorite from "./components/Pages/Favorite/favorite"
+import Favorite from "./components/Pages/Favorite/favorite";
 class App extends Component {
     render() {
         return (

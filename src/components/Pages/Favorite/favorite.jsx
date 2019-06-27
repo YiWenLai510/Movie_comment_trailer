@@ -17,9 +17,9 @@ export default class Favorite extends Component {
         }
             
     }
-    render(){
+    render(){ console.log(this.props.userId)
         return (
-                <Query query={FAVORITE_QUERY} variables={{userId: "104979516809933647889"}}>
+                <Query query={FAVORITE_QUERY} variables={{userId:this.props.userId}}>
                 {({ loading, error, data, subscribeToMore }) => {
                     if (loading) return <p>Loading...</p>
                     if (error) return <p>Error :(((</p>     
@@ -41,10 +41,9 @@ export default class Favorite extends Component {
                         )
                     }                        
                     );
-                    /*if (!unsubscribe)
+                    if (!unsubscribe)
                         unsubscribe = subscribeToMore({
                         document: FAVORITE_SUBSCRIPTION,
-                        variables:{userId: this.props.userId},
                         updateQuery: (prev, { subscriptionData }) => {
                             if (!subscriptionData.data) return prev
                             const newfavorite = subscriptionData.data.users.data
@@ -53,7 +52,7 @@ export default class Favorite extends Component {
                                 userFavorite: [newfavorite, ...prev.userFavorite]
                             }                 
                         }
-                    })*/
+                    })
                     return (
                         <FourGrid
                         header={null}

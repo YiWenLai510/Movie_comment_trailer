@@ -65,11 +65,11 @@ export default class SearchBar extends Component {
                 click:true
             })
         } 
-        else {
+        /*else {
             this.setState({
                 click:false
             })
-        }
+        }*/
     }
 
     render () {

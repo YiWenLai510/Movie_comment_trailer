@@ -55,5 +55,5 @@ type CommentSubscriptionPayload {
 
 type UsersSubscriptionPayload{
   mutation: MutationType!
-  data: User!
+  data: Favorite
 }

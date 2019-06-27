@@ -3,8 +3,9 @@
     return  await models.Comment.find({movieid:args.query})
   } ,
   favorites: async(parent, args, { db,models }, info) =>{
+
     const user = await models.User.find({userId:args.query});
-    console.log(user)
+    console.log(args.query)
     if(Object.getOwnPropertyNames(user).length > 1){
       return  {
         userId: user[0].userId,
@@ -12,7 +13,7 @@
       }
     }
     return {
-      userId:args.query,
+      userId:args.query, 
       favorite:[]
     }
   }

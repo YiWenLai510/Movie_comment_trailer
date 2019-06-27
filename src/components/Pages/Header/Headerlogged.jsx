@@ -6,7 +6,7 @@ import "./Header.css";
     
 
 const Header = ({profilePicURL,name,logout,userId}) => { 
-    const [showFavorite,set_showFavorite] = useState(false);
+    /*const [showFavorite,set_showFavorite] = useState(false);*/
     return (
         <React.Fragment>
             <header className="header">
@@ -19,8 +19,10 @@ const Header = ({profilePicURL,name,logout,userId}) => {
                     />
                 </Link>
             </div>
-            <button onClick={()=>set_showFavorite(!showFavorite) }>
-                Favorite
+            <button >
+                <Link to="/favorite">
+                    favorite
+                </Link>
             </button>
             <div className="user_bar">
                 <i className="fas fa-sign-out-alt login-icon  fa-3x" style={{color:"#16a150"}} onClick={logout}></i>
@@ -30,11 +32,7 @@ const Header = ({profilePicURL,name,logout,userId}) => {
                     className="profileimg"
                 />
             </div>
-        </header>
-        <div style={ {display:showFavorite?"block":"none"} }>
-            <Favorite userId={userId} />
-        </div>
-        
+        </header>        
         </React.Fragment>
         
     );

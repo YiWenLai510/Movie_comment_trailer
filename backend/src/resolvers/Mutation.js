@@ -27,30 +27,52 @@ const Mutation = {
       const newFavorite = {
         movie_poster:args.data.movie_poster,
         movie_title:args.data.movie_title,
-        movieid:args.data.movieid,
+        movieid:args.data.movieid, 
       }
       User[0].favorite.push(newFavorite);
       await models.User.updateOne({userId:args.data.userId},{
         userId:args.data.userId,
         favorite:User[0].favorite
       })
+      pubsub.publish(`users ${args.data.userId}`, {
+        users: {
+          mutation: 'CREATED',
+          data: {
+            movie_poster:args.data.movie_poster,
+            movie_title:args.data.movie_title,
+            movieid:args.data.movieid, 
+          }
+        }
+      })
       return true;
     }
     else{
+      const newFavorite = {
+        movie_poster:args.data.movie_poster,
+        movie_title:args.data.movie_title,
+        movieid:args.data.movieid,
+      }
       const newUser = new models.User({
         userId: args.data.userId,
-        favorite: [{
-          movie_poster:args.data.movie_poster,
-          movie_title:args.data.movie_title,
-          movieid:args.data.movieid,
-        }] 
+        favorite: [newFavorite] 
       })
       try{
         newUser.save();
+        pubsub.publish(`users ${args.data.userId}`, {
+          users: {
+            mutation: 'CREATED',
+            data: {
+              movie_poster:args.data.movie_poster,
+              movie_title:args.data.movie_title,
+              movieid:args.data.movieid,
+            }
+          }
+        })
         return true;
       }catch (e) {
         throw new Error('Cannot Save Post!!!');
       }
+      
     }
   }
 }

@@ -11,10 +11,14 @@ export const COMMENTS_QUERY = gql`
   }
 `
 export const FAVORITE_QUERY = gql`
-  query  users($userId:String){
-    users(query:$userId) {
-      favorite
+  query  favorites($userId:String){
+    favorites(query:$userId) {
       userId
+      favorite{
+        movie_poster
+        movie_title
+        movieid
+      }
     }
   }
 `

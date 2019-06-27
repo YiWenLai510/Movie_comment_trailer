@@ -5,6 +5,7 @@ import "./favorite.css";
 import MovieThumbnail from "../MovieThumbnail/MovieThumbnail";
 import FourGrid from "../FourGrid/FourGrid";
 import { POSTER_SIZE, IMAGE_BASE_URL } from "../../../configurations/config";
+import noImage from "./../../../no_image.jpg";
 
 let unsubscribe = null
 
@@ -18,34 +19,29 @@ export default class Favorite extends Component {
     }
     render(){
         return (
-            <FourGrid
-                    /*header={null}
-                    loading={null}*/
-            >
-                <Query query={FAVORITE_QUERY} variables={{userId: this.props.userId}}>
+                <Query query={FAVORITE_QUERY} variables={{userId: "104979516809933647889"}}>
                 {({ loading, error, data, subscribeToMore }) => {
                     if (loading) return <p>Loading...</p>
-                    if (error) return <p>Error :(((</p>       
-                    const userFavorite = data.users.favorite.map( movie =>{
+                    if (error) return <p>Error :(((</p>     
+                    const userFavorite = data.favorites.favorite.map( movie =>{
                         return(
                             <MovieThumbnail
-                                /*key={movie}
+                                key={movie}
                                 clickable={true}
                                 image={
-                                    movie.poster_path
+                                    movie.movie_poster
                                         ? `${IMAGE_BASE_URL}${POSTER_SIZE}${
-                                            movie.poster_path
+                                            movie.movie_poster
                                         }`
                                         : noImage
                                 }
-                                movieId={movie}
-                                movieName={movie.original_title}*/
+                                movieId={movie.movieid}
+                                movieName={movie.movie_title}
                         />
                         )
-                    }
-                        
+                    }                        
                     );
-                    if (!unsubscribe)
+                    /*if (!unsubscribe)
                         unsubscribe = subscribeToMore({
                         document: FAVORITE_SUBSCRIPTION,
                         variables:{userId: this.props.userId},
@@ -57,13 +53,15 @@ export default class Favorite extends Component {
                                 userFavorite: [newfavorite, ...prev.userFavorite]
                             }                 
                         }
-                    })
-                    return <ul>{ userFavorite}</ul>
+                    })*/
+                    return (
+                        <FourGrid
+                        header={null}
+                        loading={null}
+                        >{userFavorite}</FourGrid>
+                    )
                 }}
                 </Query> 
-            </FourGrid>
-                   
-            
         );
     }
     

@@ -56,7 +56,9 @@ export default class SearchBar extends Component {
             this.createfavorite({
                 variables:{
                     userId:this.props.userId,
-                    movieinfo:this.props.movie
+                    movie_poster:this.props.movie.poster_path,
+                    movie_title:this.props.movie.original_title,
+                    movieid:this.props.movie.id,
                 }
             })
             this.setState({

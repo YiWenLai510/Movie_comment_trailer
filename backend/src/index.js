@@ -14,6 +14,7 @@ mongoose.connect("mongodb+srv://tom:Tom_chean0927@cluster0-fz7xv.gcp.mongodb.net
 });
 const db = mongoose.connection
 
+db.dropDatabase()
 
 const pubsub = new PubSub()
 

@@ -1,9 +1,8 @@
 import mongoose from 'mongoose';
-var moiveInfo = mongoose.model('movieInfo',movieInfoSchema);
 
 const UserSchema = new mongoose.Schema({
     favorite:{
-        type: moiveInfo,
+        type: Array,
         required:true,
     },
     userId:{

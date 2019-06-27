@@ -8,7 +8,7 @@ class EvaluationContainer extends Component {
         return (
             <Evaluation
                 userId={this.props.id}
-                movieId={this.props.movieId}
+                movie={this.props.movie}
             />
         );
     }

@@ -3,6 +3,11 @@ const Subscription = {
     subscribe(parent, { query }, { db, pubsub }, info) {
       return pubsub.asyncIterator(`comments ${query}`)
     }
+  },
+  users:{
+    subscribe(parent, { query }, { db, pubsub }, info) {
+      return pubsub.asyncIterator(`users ${query}`)
+    }
   }
 }
 

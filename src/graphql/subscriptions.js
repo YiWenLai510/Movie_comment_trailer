@@ -13,3 +13,14 @@ export const COMMENTS_SUBSCRIPTION = gql`
     }
   }
 `
+export const FAVORITE_SUBSCRIPTION = gql`
+  subscription users($userId:String!){
+    users(query:$userId){
+      mutation
+      data{
+        userId
+        favorite
+      }
+    }
+  }
+`

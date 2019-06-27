@@ -5,7 +5,10 @@ type Query {
 
 type User {
   userId:String!
-  favorite:[Int!]  
+  favorite:[movieInfo!]  
+}
+type movieInfo{
+  info:[string!]!
 }
 type Comment {
   content:String!
@@ -32,6 +35,7 @@ input CreateCommentInput {
 
 type Subscription {
   comments(query: String!): CommentSubscriptionPayload!
+  users(query: String!): UsersSubscriptionPayload!
 }
 enum MutationType {
   CREATED
@@ -42,4 +46,9 @@ enum MutationType {
 type CommentSubscriptionPayload {
   mutation: MutationType!
   data: Comment!
+}
+
+type UsersSubscriptionPayload{
+  mutation: MutationType!
+  data: User!
 }

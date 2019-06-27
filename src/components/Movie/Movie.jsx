@@ -28,7 +28,7 @@ const Movie = ({ movie, videos,directors, actors, loading,movieId,movieSimilar }
                     revenue={movie.revenue}
                 />
                 <Youtube videos={videos}></Youtube>
-                <EvaluationContainer movieId={movieId}/>
+                <EvaluationContainer movie={movie}/>
                 <Comments movieId={movieId} header='Comments'>test</Comments>
                 <FourGrid_Collapse header="Actors">
                     {actors.map(actor => (

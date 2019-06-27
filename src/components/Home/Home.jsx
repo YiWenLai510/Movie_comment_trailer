@@ -24,8 +24,8 @@ const Home = ({
     heroImage,
     currentPage,
     changemode
-}) => {
-    return (
+}) => {console.log(movies);
+    return ( 
         <React.Fragment>
             {/* First check heroImage available or not */}
             {heroImage && (

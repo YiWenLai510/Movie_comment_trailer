@@ -7,7 +7,18 @@
     display: flex;
     justify-content: space-between;
 }
-
+.header button{
+    background-color: transparent;
+    color: #fff;
+    border: none;
+    opacity:0.8;
+    font-weight: inherit;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    cursor: pointer;
+    margin:0;
+    font-size: 30px;
+}
 .header div {
     margin: 2px;
     height:100%;

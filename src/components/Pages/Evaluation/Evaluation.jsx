@@ -40,7 +40,7 @@ export default class SearchBar extends Component {
             variables:{
                 content: this.state.comment,
                 stars: this.state.rateValue,
-                movieid: parseInt(this.props.movieId)
+                movieid: parseInt(this.props.movie.id)
             }
         })
         this.setState({
@@ -56,7 +56,7 @@ export default class SearchBar extends Component {
             this.createfavorite({
                 variables:{
                     userId:this.props.userId,
-                    movieid:parseInt(this.props.movieId)
+                    movieinfo:this.props.movie
                 }
             })
             this.setState({

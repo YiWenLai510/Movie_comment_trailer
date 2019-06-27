@@ -17,11 +17,11 @@ class HeaderContainer extends Component{
             this.props.SET_USER(user);
         }
     }
-   
-    render(){
+    
+    render(){ 
         if(this.props.id){
             return (
-                <Headerlogged profilePicURL={this.props.profilePicURL} name={this.props.name} logout={this.props.CLEAR_USER}>                    
+                <Headerlogged profilePicURL={this.props.profilePicURL} name={this.props.name} logout={this.props.CLEAR_USER} userId={this.props.id}>                    
                 </Headerlogged>
             );
         }

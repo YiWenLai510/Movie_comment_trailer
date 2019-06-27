@@ -10,4 +10,11 @@ export const COMMENTS_QUERY = gql`
     }
   }
 `
-
+export const FAVORITE_QUERY = gql`
+  query  users($userId:String){
+    users(query:$userId) {
+      favorite
+      userId
+    }
+  }
+`

@@ -12,17 +12,22 @@
     color: #fff;
     border: none;
     opacity:0.8;
-    font-weight: inherit;
     border: 1px solid transparent;
     border-radius: 5px;
     cursor: pointer;
-    margin:0;
+    padding: 0;
+    margin: 0;
+    text-align: right;
     font-size: 30px;
+    padding-right: 30px;
 }
 .header div {
     margin: 2px;
     height:100%;
     width: 200px;
+}
+.div1{
+    width:1000px;
 }
 .user_bar{
     display: flex;

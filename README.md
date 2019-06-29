@@ -10,6 +10,7 @@
 
 ## Demo link
 
+https://www.youtube.com/watch?v=tfPnITgkoPg
 
 ## How to use
 
@@ -62,11 +63,11 @@
       最愛功能
 	  - 後端:
 		  定義schema、寫resolver
-賴繹文
+* 賴繹文
 	前端:
 		最愛功能
 	後端:
 		定義schema、寫resolver
-陳昱銓
+* 陳昱銓
 	deploy
 	影片readme製作

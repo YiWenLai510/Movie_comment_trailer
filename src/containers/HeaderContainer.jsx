@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import Header from "../components/Pages/Header/Header";
 import Headerlogged from "../components/Pages/Header/Headerlogged"

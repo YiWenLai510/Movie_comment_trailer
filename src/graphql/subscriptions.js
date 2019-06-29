@@ -18,9 +18,12 @@ export const FAVORITE_SUBSCRIPTION = gql`
     users(query:$userId){
       mutation
       data {
-        movie_poster
-        movie_title
-        movieid       
+        userId
+        favorite{
+          movie_poster
+          movie_title
+          movieid
+        }       
       }
     }
   }

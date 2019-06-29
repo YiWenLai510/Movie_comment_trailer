@@ -6,6 +6,7 @@ const Subscription = {
   },
   users:{
     subscribe(parent, { query }, { db, pubsub }, info) {
+      console.log('sub')
       return pubsub.asyncIterator(`users ${query}`)
     }
   }

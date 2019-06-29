@@ -5,7 +5,6 @@
   favorites: async(parent, args, { db,models }, info) =>{
 
     const user = await models.User.find({userId:args.query});
-    console.log(args.query)
     if(Object.getOwnPropertyNames(user).length > 1){
       return  {
         userId: user[0].userId,

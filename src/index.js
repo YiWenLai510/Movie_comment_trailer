@@ -23,12 +23,12 @@ const storeWithMiddleware = applyMiddleware(promiseMiddleware)(createStore);
 
 // Create an http link:
 const httpLink = new HttpLink({
-  uri: 'http://140.112.249.193:4000/'
+  uri: 'http://localhost:4000'
 })
 
 // Create a WebSocket link:
 const wsLink = new WebSocketLink({
-  uri: `ws://140.112.249.193:4000/`,
+  uri: `ws://localhost:4000`,
   options: { reconnect: true }
 })
 

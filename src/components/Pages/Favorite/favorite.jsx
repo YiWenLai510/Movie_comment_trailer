@@ -18,7 +18,6 @@ export default class Favorite extends Component {
             
     }
     render(){ 
-        console.log(this.props.id)
         if(this.props.id !== null)
         return (                
                 <Query query={FAVORITE_QUERY} variables={{userId:this.props.id}}>
@@ -28,7 +27,7 @@ export default class Favorite extends Component {
                     const userFavorite = data.favorites.favorite.map( movie =>{
                         return(
                             <MovieThumbnail
-                                key={movie}
+                                key={movie.movieid}
                                 clickable={true}
                                 image={
                                     movie.movie_poster
@@ -48,17 +47,13 @@ export default class Favorite extends Component {
                         document: FAVORITE_SUBSCRIPTION,
                         variables:{userId:this.props.id},
                         updateQuery: (prev, { subscriptionData }) => {
-                            if (!subscriptionData.data) return prev
-                            const newfavorite = {
-                                movie_poster:subscriptionData.data.users.data.movie_poster,
-                                movie_title :subscriptionData.data.users.data.movie_title,
-                                movieid: subscriptionData.data.users.data.movieid
-                            }   
-                            console.log(prev)
+                            
+                            if (!subscriptionData.data.users.data) return prev
                             return {
+                                ...prev,
                                 favorites:{
-                                    ...prev.favorite,
-                                    favorite:[newfavorite ,...prev.favorites.favorite]
+                                    ...prev.favorites,
+                                    favorite:subscriptionData.data.users.data.favorite
                                 }
                             }                 
                         }

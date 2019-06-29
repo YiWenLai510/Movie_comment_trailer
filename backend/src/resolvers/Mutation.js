@@ -29,21 +29,26 @@ const Mutation = {
         movie_title:args.data.movie_title,
         movieid:args.data.movieid, 
       }
-      User[0].favorite.push(newFavorite);
-      await models.User.updateOne({userId:args.data.userId},{
-        userId:args.data.userId,
-        favorite:User[0].favorite
+      const index = User[0].favorite.findIndex( movie =>{
+        return movie.movieid == newFavorite.movieid
       })
-      pubsub.publish(`users ${args.data.userId}`, {
-        users: {
-          mutation: 'CREATED',
-          data: {
-            movie_poster:args.data.movie_poster,
-            movie_title:args.data.movie_title,
-            movieid:args.data.movieid, 
+      if(index == -1){
+        User[0].favorite.push(newFavorite);
+        await models.User.updateOne({userId:args.data.userId},{
+          userId:args.data.userId,
+          favorite:User[0].favorite
+        })
+        console.log('add')
+        pubsub.publish(`users ${args.data.userId}`, {
+          users: {
+            mutation: 'CREATED',
+            data: {
+              userId :args.data.userId,
+              favorite:User[0].favorite
+            }
           }
-        }
-      })
+        })
+      }
       return true;
     }
     else{
@@ -52,6 +57,7 @@ const Mutation = {
         movie_title:args.data.movie_title,
         movieid:args.data.movieid,
       }
+      console.log(newFavorite)
       const newUser = new models.User({
         userId: args.data.userId,
         favorite: [newFavorite] 
@@ -62,9 +68,12 @@ const Mutation = {
           users: {
             mutation: 'CREATED',
             data: {
-              movie_poster:args.data.movie_poster,
-              movie_title:args.data.movie_title,
-              movieid:args.data.movieid,
+              userId :args.data.userId,
+              favorite:[{
+                movie_poster:args.data.movie_poster,
+                movie_title:args.data.movie_title,
+                movieid:args.data.movieid,
+              }]
             }
           }
         })

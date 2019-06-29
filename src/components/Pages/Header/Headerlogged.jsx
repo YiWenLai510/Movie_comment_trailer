@@ -1,12 +1,10 @@
-import React ,  { useState }from "react";
+import React from "react";
 import { Link } from "react-router-dom";
-import Favorite from "../Favorite/favorite";
 import "./Header.css";
 
     
 
 const Header = ({profilePicURL,name,logout,userId}) => { 
-    /*const [showFavorite,set_showFavorite] = useState(false);*/
     return (
         <React.Fragment>
             <header className="header">

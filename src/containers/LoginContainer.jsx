@@ -18,7 +18,6 @@ class LoginContainer extends Component {
     }
       
     handleSocialLoginFailure = (err) => {
-        alert('login_fail')
     }
     
     render() {

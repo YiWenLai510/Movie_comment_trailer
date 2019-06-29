@@ -37,57 +37,13 @@
 
 ### Using
 
-* Web Audio API: To record audio and analyze in analyzer node.
-* query-string: Used to communicate to backend
-* react-burger-menu: Burger-menu in react.js
-* react-responsive: To implement mobile responsive
-* reactjs-popup: Show sign-in popups
-* react-switch: Sitch between option
-* firebase: Use auth package to implement OAuth sign-in
-* react-p5-wrapper: draw background
-* Notification: Notify user the end of Pomodoro Timer.
-* react-table: Present Data in table format
-* moment.js: Process time format
-* react-day-picker: Use to pick chart rang(day/week)
-* react-infinite-scroller: Use to load cards
-* normalize.css: normalize browser difference
-* node-sass: Use sass
+* Youtube API
 
 ### Reference
 
-* react-month-picker: Due to it design style is so different to other part in this project, I write an alternative on my own.
-* stackoverflow
-* MDN
-* Google Developers - Web
+* https://github.com/RuhanRK/react-tmdb-movie
+* https://github.com/SKempin/reactjs-tmdb-app?fbclid=IwAR0nZDZ9H3qQU8XfRqHVVjmKCBmFzaA0t98ZM6E7-pBPJi9lrRno2k31iEE
+-   電影相關的資料是由 The Movie Database (TMDb) API. 而來
+參考的連結只有前端，前端架構可參考連結的readme。後端主要是用graphql 和graphql-yoga，前端用Apollo、graphql和後端溝通。
 
-### Here is somw feature of this project
-
--   Search Any Movie
--   Load More option to see more movies
--   See Whole details of any movie by clicking that Movie
--   Smooth Scroll to top button
--   Store Data to `localStore` for better view in future
--   **NotFound** page
-
-> Hope You'll Like it
-
----
-
-#### You can See the Live demo By Click below link
-
-[React Movie](https://react-tmdb-movie.netlify.com/)
-
----
-
-### This section is for Developer
-
-You can Run this project in your local machine. For that You have to do 3 setp
-
-1. Download this Repo or Clone this Repo
-2. Run `npm install`
-3. Run `npm start` to Start this project
-
----
-
-### Here is all `dependencies` Name
 

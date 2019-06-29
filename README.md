@@ -57,12 +57,12 @@ https://www.youtube.com/watch?v=tfPnITgkoPg
 ### 成員貢獻
 
 * 陳冠豪:
-	  - 前端:
-      登入服務
-      熱門、最新電影分類
-      最愛功能
-	  - 後端:
-		  定義schema、寫resolver
+	- 前端:
+	      登入服務
+	      熱門、最新電影分類
+	      最愛功能
+	- 後端:
+		定義schema、寫resolver
 * 賴繹文
 	前端:
 		最愛功能

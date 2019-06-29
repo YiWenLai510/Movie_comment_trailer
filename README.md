@@ -1,10 +1,64 @@
-## Hi there Let me tell you a brief introduction of this project.
+# Movie_comment_trailer
 
----
+## Introduction
 
-This is movie's details view project with the help of [The Movie DB](https://www.themoviedb.org/) database. I hae used [React](https://redux.js.org/) and [Redux](https://redux.js.org/) to create this project. Basically I have made this [indorse](https://indorse.io/) for [React](https://redux.js.org/) evaluation
+瀏覽各類電影資訊，並評論以及加入最愛
 
----
+## Deployed Link
+
+[https://movie-comment-system.herokuapp.com/](https://movie-comment-system.herokuapp.com/)
+
+## How to use
+
+1. deployed version : [https://movie-comment-system.herokuapp.com/](https://movie-comment-system.herokuapp.com/)
+2. local version : 下載後在root資料夾npm install，再至backend資料夾npm install.分別npm start即可.localhost:3000就是主要頁面
+
+
+## using packages/ References
+
+-   [prop-types](https://www.npmjs.com/package/prop-types)
+
+-   [react](https://reactjs.org/)
+
+-   [react-dom](https://reactjs.org/)
+
+-   [react-redux](https://redux.js.org/basics/usage-with-react)
+
+-   [react-router-dom](https://reactjs.org/)
+
+-   [react-scripts](https://reactjs.org/)
+
+-   [react-scroll-up](https://github.com/milosjanda/react-scroll-up)
+
+-   [redux](https://redux.js.org/)
+
+-   [redux-promise](https://www.npmjs.com/package/redux-promise)
+
+
+### Using
+
+* Web Audio API: To record audio and analyze in analyzer node.
+* query-string: Used to communicate to backend
+* react-burger-menu: Burger-menu in react.js
+* react-responsive: To implement mobile responsive
+* reactjs-popup: Show sign-in popups
+* react-switch: Sitch between option
+* firebase: Use auth package to implement OAuth sign-in
+* react-p5-wrapper: draw background
+* Notification: Notify user the end of Pomodoro Timer.
+* react-table: Present Data in table format
+* moment.js: Process time format
+* react-day-picker: Use to pick chart rang(day/week)
+* react-infinite-scroller: Use to load cards
+* normalize.css: normalize browser difference
+* node-sass: Use sass
+
+### Reference
+
+* react-month-picker: Due to it design style is so different to other part in this project, I write an alternative on my own.
+* stackoverflow
+* MDN
+* Google Developers - Web
 
 ### Here is somw feature of this project
 
@@ -37,20 +91,3 @@ You can Run this project in your local machine. For that You have to do 3 setp
 
 ### Here is all `dependencies` Name
 
--   [prop-types](https://www.npmjs.com/package/prop-types)
-
--   [react](https://reactjs.org/)
-
--   [react-dom](https://reactjs.org/)
-
--   [react-redux](https://redux.js.org/basics/usage-with-react)
-
--   [react-router-dom](https://reactjs.org/)
-
--   [react-scripts](https://reactjs.org/)
-
--   [react-scroll-up](https://github.com/milosjanda/react-scroll-up)
-
--   [redux](https://redux.js.org/)
-
--   [redux-promise](https://www.npmjs.com/package/redux-promise)

@@ -8,20 +8,24 @@ import { POSTER_SIZE, IMAGE_BASE_URL } from "../../../configurations/config";
 import noImage from "./../../../no_image.jpg";
 
 let unsubscribe = null
-
+let myrefetch = null
 export default class Favorite extends Component {
+
     componentWillUnmount(){
         if(unsubscribe){
             unsubscribe()
             unsubscribe = null
-        }
-            
+        } 
+    }
+    componentDidMount(){
+        if(myrefetch != null)  myrefetch()
     }
     render(){ 
-        if(this.props.id !== null)
-        return (                
+        if(this.props.id !== null ){
+            return (                
                 <Query query={FAVORITE_QUERY} variables={{userId:this.props.id}}>
-                {({ loading, error, data, subscribeToMore }) => {
+                {({ loading, error, data, subscribeToMore,refetch }) => {
+                    myrefetch = refetch
                     if (loading) return <p>Loading...</p>
                     if (error) return <p>Error :(((</p>  
                     const userFavorite = data.favorites.favorite.map( movie =>{
@@ -47,7 +51,7 @@ export default class Favorite extends Component {
                         document: FAVORITE_SUBSCRIPTION,
                         variables:{userId:this.props.id},
                         updateQuery: (prev, { subscriptionData }) => {
-                            
+                            console.log('update')
                             if (!subscriptionData.data.users.data) return prev
                             return {
                                 ...prev,
@@ -66,7 +70,9 @@ export default class Favorite extends Component {
                     )
                 }}
                 </Query> 
-        );
+            );
+        }
+        
         else return (
             <div>null</div>
         )

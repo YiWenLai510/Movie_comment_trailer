@@ -73,7 +73,7 @@ https://www.youtube.com/watch?v=tfPnITgkoPg
 		最愛功能
 	- 後端:
 		定義schema、寫resolver
-	-readme製作
+	- readme製作
 * 陳昱銓
 	- 後端:
 		定義schema、寫resolver
